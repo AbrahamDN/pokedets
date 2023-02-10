@@ -18,7 +18,11 @@ module.exports = {
       "3xl": ["36px", { fontWeight: "700" }],
       "4xl": ["58px", { fontWeight: "700" }],
     },
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        layout: "4fr 5fr",
+      },
+    },
   },
   plugins: [],
 };
