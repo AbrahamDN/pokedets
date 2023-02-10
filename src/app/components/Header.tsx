@@ -17,7 +17,7 @@ const Header = ({ noLogo, type = "default" }: HeaderProps) => {
 
   return (
     <header
-      className={`flex w-full max-w-screen-xl justify-between min-[350px]:justify-center items-center py-8 mx-auto relative gap-2`}
+      className={`flex w-full max-w-screen-xl justify-between min-[350px]:justify-center items-center py-8 mx-auto relative gap-2 mb-8`}
       style={{ height: !lgScreen ? 17.25 : 27.25 }}
     >
       <AnimatePresence>
