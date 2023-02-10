@@ -1,8 +1,8 @@
-import Text from "./components/Text";
+import Text from "./Text";
 
-export default function Home() {
+const PokemonList = () => {
   return (
-    <main className="w-full">
+    <div>
       <Text as="h1" level={1}>
         Heading 1
       </Text>
@@ -16,6 +16,8 @@ export default function Home() {
         Heading 4
       </Text>
       <Text>Paragraph</Text>
-    </main>
+    </div>
   );
-}
+};
+
+export default PokemonList;
