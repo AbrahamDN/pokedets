@@ -28,7 +28,12 @@ export default function RootLayout({
         <div className="h-full flex relative">
           <Sidebar show={sidebar} />
 
-          <section className="bg-slate-200 w-full min-h-full overflow-hidden overflow-y-auto px-5 py-6 md:px-10 lg:py-10 lg:px-16 flex flex-col items-center">
+          <section
+            className="bg-slate-200 w-full min-h-full overflow-hidden overflow-y-auto px-5 py-6 md:px-10 lg:py-10 lg:px-16 flex flex-col items-center"
+            style={{
+              background: `linear-gradient(143.33deg, hsl(266deg 27% 47% / 13%) -28.36%, hsl(266deg 27% 47% / 0%) 78.66%), #FFFFFF`,
+            }}
+          >
             <Header noLogo={sidebar} />
 
             {children}
