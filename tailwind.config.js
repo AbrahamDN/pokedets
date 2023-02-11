@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -7,6 +9,10 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    colors: {
+      ...colors,
+      fade: "rgba(0, 0, 0, 0.13)",
+    },
     fontSize: {
       xm: "13px",
       sm: "14px",
@@ -21,6 +27,10 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         layout: "4fr 5fr",
+        template: "3fr 4fr 3fr",
+      },
+      gridTemplateRows: {
+        template: "repeat(auto-fit, auto)",
       },
     },
   },

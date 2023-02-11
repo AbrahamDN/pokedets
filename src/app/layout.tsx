@@ -28,10 +28,11 @@ export default function RootLayout({
         <div className="h-full flex relative">
           <Sidebar show={sidebar} />
 
-          <div className="bg-slate-200 w-full px-5 py-6 md:px-10 lg:py-10 lg:px-16">
+          <section className="bg-slate-200 w-full min-h-full overflow-hidden overflow-y-auto px-5 py-6 md:px-10 lg:py-10 lg:px-16 flex flex-col items-center">
             <Header noLogo={sidebar} />
+
             {children}
-          </div>
+          </section>
         </div>
       </body>
     </html>
