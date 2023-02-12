@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require("tailwindcss/colors");
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
@@ -25,6 +26,10 @@ module.exports = {
       "4xl": ["58px", { fontWeight: "700" }],
     },
     extend: {
+      fontFamily: {
+        bakbakOne: ["Bakbak One", ...fontFamily.sans],
+        sans: ["Inter", ...fontFamily.sans],
+      },
       gridTemplateColumns: {
         layout: "4fr 5fr",
         template: "3fr 4fr 3fr",
