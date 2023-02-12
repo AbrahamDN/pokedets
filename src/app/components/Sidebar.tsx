@@ -29,10 +29,10 @@ const Sidebar = ({ show }: SidebarProps) => {
           }}
           className="sidebar h-full w-full lg:w-4/5 lg:min-w-[340px] max-lg:absolute bg-white px-5 py-6 md:px-10 lg:py-10 lg:px-16 flex justify-center z-40 border-r border-fade"
         >
-          <div className="w-full max-w-screen-xl">
+          <div className="w-full max-w-screen-xl flex-grow flex flex-col overflow-y-hidden px-1">
             <Header type="sidebar" />
 
-            <div className="max-w-lg">
+            <div className="max-w-lg mx-auto w-full h-full">
               <PokemonList />
             </div>
           </div>

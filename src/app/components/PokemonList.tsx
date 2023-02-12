@@ -1,22 +1,27 @@
-import Text from "./Text";
+import PokemonEntry from "./PokemonEntry";
+import SearchInput from "./SearchInput";
 
 const PokemonList = () => {
   return (
-    <div>
-      <Text as="h1" level={1}>
-        Heading 1
-      </Text>
-      <Text as="h2" level={2}>
-        Heading 2
-      </Text>
-      <Text as="h3" level={3}>
-        Heading 3
-      </Text>
-      <Text as="h4" level={4}>
-        Heading 4
-      </Text>
-      <Text>Paragraph</Text>
-    </div>
+    <section className="max-w-screen-xl w-full flex flex-col items-center flex-grow h-inherit">
+      <SearchInput />
+
+      <p className="w-full mb-6 ">
+        Results: <mark className="font-medium bg-transparent">6</mark>
+      </p>
+
+      <hr />
+
+      <div className="w-full grid grid-cols-1 divide-y-2 flex-grow overflow-y-auto scrollbar-hide px-1 pb-24">
+        <span />
+        <PokemonEntry id={609} name="Chandelure" type={["ghost", "fire"]} />
+        <PokemonEntry id={609} name="Chandelure" type={["ghost", "fire"]} />
+        <PokemonEntry id={609} name="Chandelure" type={["ghost", "fire"]} />
+        <PokemonEntry id={609} name="Chandelure" type={["ghost", "fire"]} />
+        <PokemonEntry id={609} name="Chandelure" type={["ghost", "fire"]} />
+        <PokemonEntry id={609} name="Chandelure" type={["ghost", "fire"]} />
+      </div>
+    </section>
   );
 };
 

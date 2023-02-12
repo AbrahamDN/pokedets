@@ -57,6 +57,9 @@ module.exports = {
       gridTemplateRows: {
         template: "repeat(auto-fit, auto)",
       },
+      height: {
+        inherit: "inherit",
+      },
     },
   },
   plugins: [],
