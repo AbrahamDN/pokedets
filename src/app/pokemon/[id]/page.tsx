@@ -1,14 +1,13 @@
 "use client";
+import { useLoading } from "@/app/store/loading.store";
+import { useScreenStore } from "@/app/store/screenSize.store";
+import { useSidebar } from "@/app/store/sidebar.store";
 import Image from "next/image";
-import Text from "../../components/Text";
-import PokemonTemplate from "../template";
-import { useScreenStore } from "../../store/screenSize.store";
-import Progress from "../../components/Progress";
-import { useSidebar } from "../../store/sidebar.store";
-import { useLoading } from "../../store/loading.store";
 import { useEffect } from "react";
+import Text from "@/app/components/Text";
+import Progress from "@/app/components/Progress";
 
-export default function Pokemon() {
+export default function Home() {
   const { lgScreen } = useScreenStore();
   const { sidebar } = useSidebar();
   const { loading, setLoading } = useLoading();
@@ -23,7 +22,11 @@ export default function Pokemon() {
 
   return (
     <main className="w-full max-w-screen-xl h-auto flex flex-col items-center flex-grow max-lg:pb-8">
-      <PokemonTemplate>
+      <section
+        className={`h-auto w-full grid ${
+          lgScreen && !sidebar ? "grid-cols-3" : "text-center max-lg:max-w-md"
+        } gap-5 ${!sidebar ? "lg:place-content-center" : "max-w-md"} my-auto`}
+      >
         <div className="max-lg:mt-6 lg:mb-6 lg:self-center">
           <Text as="span" level={3}>
             #609
@@ -96,7 +99,7 @@ export default function Pokemon() {
             </ul>
           </div>
         </div>
-      </PokemonTemplate>
+      </section>
     </main>
   );
 }

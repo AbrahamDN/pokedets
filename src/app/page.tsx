@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Text from "./components/Text";
-import PokemonTemplate from "./pokemon/template";
 import { useScreenStore } from "./store/screenSize.store";
 import Progress from "./components/Progress";
 import { useSidebar } from "./store/sidebar.store";
@@ -23,7 +22,11 @@ export default function Home() {
 
   return (
     <main className="w-full max-w-screen-xl h-auto flex flex-col items-center flex-grow max-lg:pb-8">
-      <PokemonTemplate>
+      <section
+        className={`h-auto w-full grid ${
+          lgScreen && !sidebar ? "grid-cols-3" : "text-center max-lg:max-w-md"
+        } gap-5 ${!sidebar ? "lg:place-content-center" : "max-w-md"} my-auto`}
+      >
         <div className="max-lg:mt-6 lg:mb-6 lg:self-center">
           <Text as="span" level={3}>
             #609
@@ -96,7 +99,7 @@ export default function Home() {
             </ul>
           </div>
         </div>
-      </PokemonTemplate>
+      </section>
     </main>
   );
 }
