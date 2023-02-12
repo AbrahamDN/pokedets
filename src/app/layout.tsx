@@ -6,6 +6,8 @@ import { useScreenStore } from "./store/screenSize.store";
 import { useEffect } from "react";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
+import { useLoading } from "./store/loading.store";
+import Loading from "./loading";
 
 export default function RootLayout({
   children,
@@ -16,6 +18,7 @@ export default function RootLayout({
   const isLargeScreen = (width as number) >= 1024;
   const { sidebar } = useSidebar();
   const { setLgScreen } = useScreenStore();
+  const { loading } = useLoading();
 
   useEffect(() => {
     setLgScreen(isLargeScreen);
@@ -39,6 +42,8 @@ export default function RootLayout({
             {children}
           </section>
         </div>
+
+        {loading && <Loading />}
       </body>
     </html>
   );

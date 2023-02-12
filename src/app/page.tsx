@@ -5,11 +5,22 @@ import PokemonTemplate from "./pokemon/template";
 import { useScreenStore } from "./store/screenSize.store";
 import Progress from "./components/Progress";
 import { useSidebar } from "./store/sidebar.store";
+import { useLoading } from "./store/loading.store";
+import { useEffect } from "react";
 
 export default function Home() {
   const { lgScreen } = useScreenStore();
   const { sidebar } = useSidebar();
+  const { loading, setLoading } = useLoading();
   const breakpoint = lgScreen && sidebar;
+
+  useEffect(() => {
+    setLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (loading) return <main></main>;
+
   return (
     <main className="w-full max-w-screen-xl h-auto flex flex-col items-center flex-grow max-lg:pb-8">
       <PokemonTemplate>
@@ -33,13 +44,15 @@ export default function Home() {
             breakpoint || !lgScreen ? "row-start-1" : "items-center"
           } flex justify-center `}
         >
-          <Image
-            className="lg:absolute"
-            src={`/img/pokemon/609.png`}
-            alt="Pokemon"
-            width={lgScreen ? (sidebar ? 359 : 409) : 217}
-            height={lgScreen ? (sidebar ? 359 : 409) : 217}
-          />
+          {!loading && (
+            <Image
+              className="lg:absolute"
+              src={`/img/pokemon/609.png`}
+              alt="Pokemon"
+              width={lgScreen ? (sidebar ? 359 : 409) : 217}
+              height={lgScreen ? (sidebar ? 359 : 409) : 217}
+            />
+          )}
         </div>
 
         <div className="w-full text-left max-lg:mt-10">
