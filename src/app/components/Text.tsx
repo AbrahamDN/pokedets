@@ -3,6 +3,7 @@ type TextProps = {
   children: any;
   level?: 1 | 2 | 3 | 4 | "base" | "xs";
   className?: string;
+  style?: React.CSSProperties;
 };
 
 const Text = ({
@@ -10,6 +11,7 @@ const Text = ({
   children,
   level = "base",
   className,
+  style,
 }: TextProps) => {
   const classNames: { [key: number | string]: string } = {
     1: "text-3xl lg:text-4xl font-bakbakOne",
@@ -21,7 +23,10 @@ const Text = ({
   };
 
   return (
-    <Element className={`${classNames[level]} ${className || ""}`}>
+    <Element
+      className={`${classNames[level]} ${className || ""}`}
+      style={style}
+    >
       {children}
     </Element>
   );
