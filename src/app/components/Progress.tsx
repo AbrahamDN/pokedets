@@ -10,7 +10,7 @@ const Progress = ({ as: Element = "li", label, percent }: ProgressProps) => {
   return (
     <Element className="w-full">
       {label && (
-        <Text as="span" level={4}>
+        <Text as="span" level={4} className="uppercase">
           {label}
         </Text>
       )}
