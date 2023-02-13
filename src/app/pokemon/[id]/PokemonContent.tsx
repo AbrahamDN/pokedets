@@ -70,7 +70,7 @@ const PokemonContent = () => {
             <li>
               <Text
                 as="div"
-                className="rounded-full bg-purple-500 text-white font-semibold w-fit py-1.5 px-4"
+                className="rounded-full bg-purple-500 text-white font-medium w-fit py-1.5 px-4"
               >
                 Ghost
               </Text>
@@ -78,7 +78,7 @@ const PokemonContent = () => {
             <li>
               <Text
                 as="div"
-                className="rounded-full bg-orange-500 text-white font-semibold w-fit py-1.5 px-4"
+                className="rounded-full bg-orange-500 text-white font-medium w-fit py-1.5 px-4"
               >
                 Fire
               </Text>
