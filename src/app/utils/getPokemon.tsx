@@ -11,9 +11,9 @@ async function fetchData<Type>(url: URL | string) {
 }
 
 export const getPokemon = async (id: string | number) => {
-  const pokemon = (await (
-    await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-  ).json()) as POKEMON_SCHEMA;
+  const pokemon = (await fetchData(
+    `https://pokeapi.co/api/v2/pokemon/${id}`
+  )) as POKEMON_SCHEMA;
 
   const species = await fetchData<POKEMON_SPECIES_SCHEMA>(pokemon.species?.url);
   const evolutions = await fetchData<EVOLUTION_CHAIN_SCHEMA>(
