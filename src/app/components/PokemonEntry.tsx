@@ -6,7 +6,7 @@ import Avatar from "./Avatar";
 type PokemonEntryProps = {
   id: number;
   name: string;
-  type: string[];
+  type?: string[];
 };
 
 const PokemonEntry = ({ id, name, type }: PokemonEntryProps) => {
@@ -29,7 +29,7 @@ const PokemonEntry = ({ id, name, type }: PokemonEntryProps) => {
           </article>
 
           <ul className="flex flex-wrap gap-2 sm:gap-4">
-            {type.map((typeName, idx) => (
+            {type?.map((typeName, idx) => (
               <li
                 key={`type-${idx}`}
                 className="w-10 h-5 bg-fade rounded-full"

@@ -14,8 +14,6 @@ const PokemonStats = ({ stats }: PokemonStatsProps) => {
       15) *
     100;
 
-  console.info();
-
   return (
     <div className="">
       <Text as="h2" level={2} className="mb-7">
