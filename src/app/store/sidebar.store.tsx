@@ -7,7 +7,7 @@ interface SidebarState {
 }
 
 export const useSidebar = create<SidebarState>()((set) => ({
-  sidebar: false,
+  sidebar: true,
   setSidebar: (bool) => set(() => ({ sidebar: bool })),
   toggleSidebar: () => set(({ sidebar }) => ({ sidebar: !sidebar })),
 }));
