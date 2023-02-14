@@ -3,6 +3,7 @@ import { COLOR } from "./colours.types";
 export interface POKEMON_LIST_RESULTS_SCHEMA {
   name: string;
   url: URL;
+  types?: POKEMON_TYPES_SCHEMA[];
 }
 
 export interface POKEMON_LIST_SCHEMA {
