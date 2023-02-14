@@ -7,7 +7,7 @@ import { useScreenStore } from "../store/screenSize.store";
 import { useSidebar } from "../store/sidebar.store";
 
 type PokemonEntryProps = {
-  id: number;
+  id: number | string;
   name: string;
   type?: string[];
 };

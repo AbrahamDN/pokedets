@@ -84,7 +84,7 @@ const PokemonList = () => {
             {pokemonList?.map((pokemon, idx) => (
               <PokemonEntry
                 key={pokemon.name + idx}
-                id={getIdFromUrl(pokemon.url) as number}
+                id={getIdFromUrl(pokemon.url) as string}
                 name={pokemon.name}
               />
             ))}
