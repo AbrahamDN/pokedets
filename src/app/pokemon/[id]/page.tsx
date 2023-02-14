@@ -4,7 +4,7 @@ import getIdFromUrl from "@/app/utils/getIdFromUrl";
 
 const PokemonPage = async () => {
   return (
-    <main>
+    <main className="max-w-screen-xl">
       <PokemonContent />
     </main>
   );
