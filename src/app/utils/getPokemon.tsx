@@ -22,9 +22,9 @@ export const getPokemon = async (id: string | number) => {
   const newPokemon = {
     ...pokemon,
     evolutions,
-    about: species.flavor_text_entries.filter(
+    about: species?.flavor_text_entries.filter(
       (entries) => entries.language.name === "en"
-    )[0].flavor_text,
+    )[0]?.flavor_text,
   };
 
   return newPokemon;
