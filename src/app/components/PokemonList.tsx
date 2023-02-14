@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { usePokemon } from "../store/pokemon.store";
 import getIdFromUrl from "../utils/getIdFromUrl";
 import PokemonEntry from "./PokemonEntry";
 import SearchInput from "./SearchInput";
@@ -10,7 +9,6 @@ import useFetch from "../hooks/useFetch";
 import { useSearch } from "../store/search.store";
 
 const PokemonList = () => {
-  const { allPokemon } = usePokemon();
   const { value } = useSearch();
 
   const [url, setUrl] = useState<URL | string>("");
@@ -29,6 +27,10 @@ const PokemonList = () => {
   const hasMore = searchPokemons
     ? Boolean(!searchPokemons)
     : Boolean(data?.next);
+  const isSubmitDisabled = !searchPokemons?.find(
+    (pokemon) =>
+      pokemon.name === value || `${getIdFromUrl(pokemon.url)}` === value
+  );
 
   const filterPokemon = () => {
     if (!value || !pokemons) return;
@@ -50,14 +52,15 @@ const PokemonList = () => {
     if (url && data && pokemons) setPokemons(pokemons.concat(data.results));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
-
   useEffect(() => {
     if (value.length > 0) filterPokemon();
     if (!value) setSearchPokemons(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
+
   return (
     <section className="max-w-screen-xl w-full flex flex-col items-center flex-grow h-inherit">
-      <SearchInput />
+      <SearchInput disable={isSubmitDisabled} />
 
       <p className="w-full mb-6 ">
         Results:{" "}
