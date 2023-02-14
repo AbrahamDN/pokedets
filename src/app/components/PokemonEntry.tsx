@@ -1,7 +1,10 @@
+"use client";
 import Text from "./Text";
 import { theme } from "../../../tailwind.config";
 import Link from "next/link";
 import Avatar from "./Avatar";
+import { useScreenStore } from "../store/screenSize.store";
+import { useSidebar } from "../store/sidebar.store";
 
 type PokemonEntryProps = {
   id: number;
@@ -10,10 +13,16 @@ type PokemonEntryProps = {
 };
 
 const PokemonEntry = ({ id, name, type }: PokemonEntryProps) => {
+  const { lgScreen } = useScreenStore();
+  const { setSidebar } = useSidebar();
+
+  const closeSidebar = () => !lgScreen && setSidebar(false);
+
   return (
     <Link
       href={`/pokemon/${id}`}
       className="hover:bg-slate-50 focus:bg-slate-100 focus:outline-none"
+      onClick={closeSidebar}
     >
       <article className="w-full py-7 flex items-center">
         <Avatar src={`/img/pokemon/${id}.png`} alt={name} />
