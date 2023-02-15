@@ -14,6 +14,8 @@ export default async function PokemonLayout({
   const pokemon = await getPokemon(id);
   const colors = theme.extend.colors;
 
+  const types = pokemon?.types;
+
   return (
     <section className="relative">
       <Template allPokemon={allPokemon} pokemon={pokemon}>
@@ -28,8 +30,10 @@ export default async function PokemonLayout({
           className="w-full h-full fixed inset-0 -z-10 opacity-[.13]"
           style={{
             background: `linear-gradient(143.33deg, ${
-              colors[pokemon.types[0].type.name]
-            } -28.36%, rgba(115, 87, 151, 0) 78.66%), #FFFFFF`,
+              colors[types[0].type.name]
+            } 28.36%, ${
+              types[1] ? colors[types[1].type.name] : "rgba(115, 87, 151, 0)"
+            } 78.66%), #FFFFFF`,
           }}
         />
       )}
